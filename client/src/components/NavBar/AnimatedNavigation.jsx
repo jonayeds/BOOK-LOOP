@@ -1,47 +1,58 @@
 /* eslint-disable react/prop-types */
-import {gsap} from "gsap"
-import { useState } from "react"
+import { gsap } from "gsap"
+import { useEffect, useRef, useState } from "react"
+import { NavLink, useLocation } from "react-router-dom"
 
-const AnimatedNavigation = ({name, placeholderName, navLinkName}) => {
-    const [XOffset, setXOffset] = useState(62)
-    const handleNavAnimation = (e)=>{
+const AnimatedNavigation = ({ name, placeholderName, navLinkName, pageTo }) => {
+    const [XOffset, setXOffset] = useState(0)
+    const location  = useLocation()
+    const ref = useRef(null)
+    const handleNavAnimation = (elem) => {
         const tl = gsap.timeline()
-        setXOffset(e.target.offsetWidth)
-        tl.to(`.${navLinkName}`,{
-            display:"flex",
-            justifySelf:"start",
-            width:e.target.offsetWidth,
-            duration:1,
+        setXOffset(elem.width)
+        tl.to(`.${navLinkName}`, {
+            display: "flex",
+            justifySelf: "start",
+            width: elem.width,
+            duration: 1,
         })
     }
-    const navBarOutAnimation = (e)=>{
+    useEffect(()=>{
+        if((location.pathname === pageTo) && ref.current !== null ){
+             handleNavAnimation(ref.current.getBoundingClientRect())
+        }else if( (location.pathname !== pageTo) && ref.current !== null ){
+            navBarOutAnimation(ref.current.getBoundingClientRect())
+        }
+    },[ref, location.pathname, pageTo])
+    const navBarOutAnimation = (elem) => {
         const tl = gsap.timeline()
         tl.to(`.${placeholderName}`, {
-            width:e.target.offsetWidth,
-            duration:1
+            width: elem.width,
+            duration: 1
         })
-        .to(`.${navLinkName}`, {
-            display:"hidden",
-            width:0,
-            duration:0.2
-        })
-        .to(`.${placeholderName}`, {
-            width:0,
-            duration:0.2,
-        })
-        
+            .to(`.${navLinkName}`, {
+                display: "hidden",
+                width: 0,
+                duration: 0.2
+            })
+            .to(`.${placeholderName}`, {
+                width: 0,
+                duration: 0.2,
+            })
+
     }
-  return (
-    <div className="relative " onMouseLeave={navBarOutAnimation} onMouseOver={handleNavAnimation}>
-                            <p>{name}</p>
-                            <div className={`w-0  h-[25px]  absolute pointer-events-none  bg-white mt-2 z-10 ${placeholderName}`}></div>
-                            <div className={`w-0 absolute z-0  hidden overflow-hidden mt-2 pointer-events-none ${navLinkName}`}>
-                            <svg  height={XOffset/3} className="w-full " >
-                            <path d={`M 0 0 C ${XOffset/3} ${(XOffset/3)>25 ? 25 : (XOffset/3)}, ${(XOffset/3)*2} ${(XOffset/3)>25 ? 25 : (XOffset/3)}, ${XOffset} 0`}  stroke="black" style={{strokeWidth:"2px"}}  fill="transparent"/>
-                            </svg>
-                            </div>
-                        </div>
-  )
+    return (
+        <NavLink to={pageTo} className={` `} ref={ref}   >
+            {/* {({isActive})=>isActive? handleNavAnimation: ""} */}
+            <p className="text-white px-4 py-2 text-opacity-80 z-10 tracking-widest mix-blend-difference  ">{name}</p>
+            <div className={`w-0  h-[25px]  absolute pointer-events-none  bg-white mt-2 z-10 ${placeholderName}`}></div>
+            <div className={`w-0 absolute z-0  hidden overflow-hidden mt-2 pointer-events-none ${navLinkName}`}>
+                <svg height={XOffset / 3} className="w-full " >
+                    <path d={`M 0 0 C ${XOffset / 3} ${(XOffset / 3) > 25 ? 25 : (XOffset / 3)}, ${(XOffset / 3) * 2} ${(XOffset / 3) > 25 ? 25 : (XOffset / 3)}, ${XOffset} 0`} stroke="black" style={{ strokeWidth: "2px" }} fill="transparent" />
+                </svg>
+            </div>
+        </NavLink>
+    )
 }
 
 export default AnimatedNavigation
