@@ -1,21 +1,23 @@
 /* eslint-disable react/prop-types */
 import {gsap} from "gsap"
+import { useState } from "react"
 
 const AnimatedNavigation = ({name, placeholderName, navLinkName}) => {
-    const handleNavAnimation = ()=>{
+    const [XOffset, setXOffset] = useState(62)
+    const handleNavAnimation = (e)=>{
         const tl = gsap.timeline()
-
+        setXOffset(e.target.offsetWidth)
         tl.to(`.${navLinkName}`,{
             display:"flex",
             justifySelf:"start",
-            width:62,
+            width:e.target.offsetWidth,
             duration:1,
         })
     }
-    const navBarOutAnimation = ()=>{
+    const navBarOutAnimation = (e)=>{
         const tl = gsap.timeline()
         tl.to(`.${placeholderName}`, {
-            width:62,
+            width:e.target.offsetWidth,
             duration:1
         })
         .to(`.${navLinkName}`, {
@@ -32,10 +34,10 @@ const AnimatedNavigation = ({name, placeholderName, navLinkName}) => {
   return (
     <div className="relative " onMouseLeave={navBarOutAnimation} onMouseOver={handleNavAnimation}>
                             <p>{name}</p>
-                            <div className={`w-0  h-[25px] absolute pointer-events-none  bg-white mt-2 z-10 ${placeholderName}`}></div>
+                            <div className={`w-0  h-[25px]  absolute pointer-events-none  bg-white mt-2 z-10 ${placeholderName}`}></div>
                             <div className={`w-0 absolute z-0  hidden overflow-hidden mt-2 pointer-events-none ${navLinkName}`}>
-                            <svg  height={"25"} className="" width={"62"}>
-                            <path d="M 0 0 C 20 20, 40 20, 62 0"  stroke="black" style={{strokeWidth:"2px"}}  fill="transparent"/>
+                            <svg  height={XOffset/3} className="w-full " >
+                            <path d={`M 0 0 C ${XOffset/3} ${(XOffset/3)>25 ? 25 : (XOffset/3)}, ${(XOffset/3)*2} ${(XOffset/3)>25 ? 25 : (XOffset/3)}, ${XOffset} 0`}  stroke="black" style={{strokeWidth:"2px"}}  fill="transparent"/>
                             </svg>
                             </div>
                         </div>

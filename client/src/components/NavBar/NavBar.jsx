@@ -18,6 +18,12 @@ const NavBar = () => {
                     <li>
                         <AnimatedNavigation name={"Contact"} navLinkName={"contact"} placeholderName={"contactPlaceholder"}  />
                     </li>
+                    <li>
+                        <AnimatedNavigation name={"Contactsdaaaf"} navLinkName={"contasadct"} placeholderName={"conadadstactPlaceholder"}  />
+                    </li>
+                    <li>
+                        <AnimatedNavigation name={"Codfsdfsdfsfdsfntactsdaaaf"} navLinkName={"conddtasadct"} placeholderName={"cdfsonadadstactPlaceholder"}  />
+                    </li>
                 </ul>
             </div>
             <div>
