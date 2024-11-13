@@ -1,6 +1,6 @@
 import AnimatedNavigation from "./AnimatedNavigation"
 import {gsap} from "gsap"
-
+import logo from "../../assets/logo_images/logoTransparantColor.png"
 const NavBar = () => {
     const handleNavigationHover = (e)=>{
         gsap.to(".navigation", {
@@ -24,10 +24,10 @@ const NavBar = () => {
     <nav className="relative w-screen -mx-[7vw] " >
         <div className="flex w-full items-center px-[7vw] fixed justify-between py-4  ">
             <div>
-                <h1 className="text-5xl">Logo</h1>
+                <img src={logo} className="md:w-[16vw] w-[35vw] " alt="" />
             </div>
             <div>
-                <ul className="relative  flex gap-[2vw]   bg-white" onMouseLeave={handleMouseOut} >
+                <ul className="relative hidden   lg:flex gap-[2vw]   bg-white" onMouseLeave={handleMouseOut} >
             <div className="w-0 h-full bg-[#F1F2ED]  z-0 absolute top-0 rounded-xl navigation"></div>
                     
                     <li onMouseOver={handleNavigationHover} className="relatives">

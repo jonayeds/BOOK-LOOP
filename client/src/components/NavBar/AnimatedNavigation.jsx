@@ -48,7 +48,7 @@ const AnimatedNavigation = ({ name, placeholderName, navLinkName, pageTo }) => {
             <div className={`w-0  h-[25px]  absolute pointer-events-none  bg-white mt-2 z-10 ${placeholderName}`}></div>
             <div className={`w-0 absolute z-0  hidden overflow-hidden mt-2 pointer-events-none ${navLinkName}`}>
                 <svg height={XOffset / 3} className="w-full " >
-                    <path d={`M 0 0 C ${XOffset / 3} ${(XOffset / 3) > 25 ? 25 : (XOffset / 3)}, ${(XOffset / 3) * 2} ${(XOffset / 3) > 25 ? 25 : (XOffset / 3)}, ${XOffset} 0`} stroke="black" style={{ strokeWidth: "2px" }} fill="transparent" />
+                    <path d={`M 0 0 C ${XOffset / 3} ${(XOffset / 3) > 25 ? 25 : (XOffset / 3)}, ${(XOffset / 3) * 2} ${(XOffset / 3) > 25 ? 25 : (XOffset / 3)}, ${XOffset} 0`} style={{ strokeWidth: "4px", stroke:"#c3c9ac" }} fill="transparent" />
                 </svg>
             </div>
         </NavLink>
