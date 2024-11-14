@@ -21,8 +21,8 @@ const NavBar = () => {
     )
 }
 
-  return (
-    <nav className=" fixed w-[calc(100vw-7vw)]s  w-full px-[3vw]   top-0   " >
+  return ( 
+    <nav className=" fixed w-[calc(100vw-7vw)]s  w-full px-[3vw]   top-0  z-50  " >
         <div className="flex s px-[2vw]     rounded-3xl bg-white   items-center    justify-between md:py-4 py-2  ">
            
             <div>

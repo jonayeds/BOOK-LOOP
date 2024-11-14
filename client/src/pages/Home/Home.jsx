@@ -3,7 +3,6 @@ import { useGSAP  } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 const Home = () => {
-  const tl = gsap.timeline()
   useGSAP( ()=>{
     gsap.from(".heading1",{
       left:0,
@@ -25,16 +24,23 @@ const Home = () => {
         start:"top top",
         end:"bottom bottom",
         scrub:1,
-        markers:true
+        markers:false
       }
     })
+    scrollTl.to(".heading1",{
+      left:"20vw"
+    },"scroll")
+    .to(".heading2", {
+      right:"20vw"
+    }, "scroll")
 })
   return (
-    <div className="container pt-[15vh] mx-auto min-h-screen bg-red-700   h-[200vh] max-w-[93vw] " >
+    <div className="container pt-[15vh] mx-auto     h-[200vh] max-w-[93vw] " >
           <div className="flex justify-start ">
           <h1 className="md:text-[7vw] relative left-[5vw]   text-[10vw] uppercase font-semibold heading1 opacity-100">Pass along</h1>
           </div>
-          <div className="flex justify-end "> 
+          <div className="flex justify-end ">
+             
           <h1 className="heading2 opacity-100 relative right-[5vw]  md:text-[7vw] text-[10vw] uppercase font-semibold">Your favorite </h1>
           </div>
           <div className="flex justify-start">
