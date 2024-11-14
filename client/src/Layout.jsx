@@ -3,8 +3,10 @@ import NavBar from "./components/NavBar/NavBar"
 
 const Layout = () => {
   return (
-    <div className="px-[7vw] primary-font w-screen min-h-screen">
+    <div className=" bg-white   primary-font  min-h-screen">
+        <div className="">
         <NavBar/>
+        </div>
        
         <Outlet/>
     </div>
