@@ -35,7 +35,8 @@ const Home = () => {
     }, "scroll")
 })
   return (
-    <div className="container pt-[15vh] mx-auto     h-[200vh] max-w-[93vw] " >
+    <div className="bg-[#F1F2ED]">
+      <div className="container pt-[15vh] mx-auto     h-[200vh] max-w-[93vw] " >
           <div className="flex justify-start ">
           <h1 className="md:text-[7vw] relative left-[5vw]   text-[10vw] uppercase font-semibold heading1 opacity-100">Pass along</h1>
           </div>
@@ -46,6 +47,7 @@ const Home = () => {
           <div className="flex justify-start">
           <h1 className="md:text-[7vw] text-[10vw] left-[5vw]  relative   uppercase heading1 font-semibold">reads</h1>
           </div>
+    </div>
     </div>
   )
 }

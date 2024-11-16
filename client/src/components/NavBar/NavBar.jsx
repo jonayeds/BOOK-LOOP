@@ -45,8 +45,8 @@ const NavBar = () => {
             <div className="lg:hidden flex">
                 <MobileNavBar/>
             </div>
-            <div className="hidden md:flex">
-                <button className="bg-black md:px-6 px-4 text-center py-2 text-white rounded-full" >Get Started</button>
+            <div className="hidden lg:flex">
+                <button className="bg-black px-6 text-center py-2 text-white rounded-full" >Get Started</button>
             </div>
         </div>
     </nav>
