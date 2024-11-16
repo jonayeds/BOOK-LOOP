@@ -1,6 +1,7 @@
 import { gsap } from "gsap"
 import { useGSAP  } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import HomeSubHeading from "./HomeSubHeading"
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 const Home = () => {
   useGSAP( ()=>{
@@ -35,8 +36,8 @@ const Home = () => {
     }, "scroll")
 })
   return (
-    <div className="bg-[#F1F2ED]">
-      <div className="container pt-[15vh] mx-auto font-heading text-[#989c84]    h-[200vh] max-w-[93vw] " >
+    <div className="bg-[#F1F2ED]  h-[200vh]">
+      <div className="container pt-[15vh] mx-auto font-heading text-dark    max-w-[93vw] " >
           <div className="flex justify-start ">
           <h1 className="md:text-[7vw] relative left-[5vw]   text-[10vw] uppercase font-semibold heading1 opacity-100">Pass along</h1>
           </div>
@@ -48,6 +49,7 @@ const Home = () => {
           <h1 className="md:text-[7vw] text-[10vw] left-[5vw]  relative   uppercase heading1 font-semibold">reads</h1>
           </div>
     </div>
+        <HomeSubHeading/>    
     </div>
   )
 }

@@ -4,19 +4,20 @@ import logo from "../../assets/logo_images/logoTranparantColor.png"
 import MobileNavBar from "./MobileNavBar"
 import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Link } from "react-router-dom"
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 const NavBar = () => {
     useGSAP(()=>{
         ScrollTrigger.addEventListener("scrollStart",()=>{
             gsap.to(".navbar", {
                 top:"-150px",
-                duration:1
+                duration:0.7
             })
         })
         ScrollTrigger.addEventListener("scrollEnd", ()=>{
             gsap.to(".navbar", {
                 top:0,                
-                duration:1
+                duration:1,
             })
         })
     })
@@ -42,9 +43,9 @@ const NavBar = () => {
     <nav className=" fixed navbar   w-full px-[3vw]    top-0  z-50  " >
         <div className="flex s px-[2vw]     rounded-3xl bg-white   items-center    justify-between md:py-4 py-2  ">
            
-            <div>
+            <Link to={"/"} className="cursor-pointer " >
                 <img src={logo} className="md:w-[13vw] w-[35vw] text-black" alt="" />
-            </div>
+            </Link>
             <div>
                 <ul className="relative hidden   lg:flex gap-[2vw]   bg-white" onMouseLeave={handleMouseOut} >
                     <div className="w-0 h-full bg-[#F1F2ED]  z-0 absolute top-0 rounded-xl navigation"></div>

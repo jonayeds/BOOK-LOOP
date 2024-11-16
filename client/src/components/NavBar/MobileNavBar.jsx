@@ -7,7 +7,7 @@ const MobileNavBar = () => {
 	const handleShowNav =()=>{
 		gsap.to(".navMobile",{
 			left:0,
-			duration:1,
+			duration:0.6,
 			ease:"power2.out"
 		})
 		gsap.to(".navBg", {

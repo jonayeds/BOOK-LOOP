@@ -12,6 +12,9 @@
 .font-heading{
     font-family: "Commissioner", sans-serif;
 }
+.text-dark{
+    color: #989c84;
+}
 
 ::selection{
     background-color: #989c84;
