@@ -2,7 +2,24 @@ import AnimatedNavigation from "./AnimatedNavigation"
 import {gsap} from "gsap"
 import logo from "../../assets/logo_images/logoTranparantColor.png"
 import MobileNavBar from "./MobileNavBar"
+import { useGSAP } from "@gsap/react"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger, useGSAP)
 const NavBar = () => {
+    useGSAP(()=>{
+        ScrollTrigger.addEventListener("scrollStart",()=>{
+            gsap.to(".navbar", {
+                top:"-150px",
+                duration:1
+            })
+        })
+        ScrollTrigger.addEventListener("scrollEnd", ()=>{
+            gsap.to(".navbar", {
+                top:0,                
+                duration:1
+            })
+        })
+    })
     const handleNavigationHover = (e)=>{
         gsap.to(".navigation", {
             width:e.target.offsetWidth,
@@ -22,7 +39,7 @@ const NavBar = () => {
 }
 
   return ( 
-    <nav className=" fixed w-[calc(100vw-7vw)]s  w-full px-[3vw]   top-0  z-50  " >
+    <nav className=" fixed navbar   w-full px-[3vw]    top-0  z-50  " >
         <div className="flex s px-[2vw]     rounded-3xl bg-white   items-center    justify-between md:py-4 py-2  ">
            
             <div>

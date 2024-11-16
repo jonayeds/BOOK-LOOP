@@ -36,7 +36,7 @@ const Home = () => {
 })
   return (
     <div className="bg-[#F1F2ED]">
-      <div className="container pt-[15vh] mx-auto     h-[200vh] max-w-[93vw] " >
+      <div className="container pt-[15vh] mx-auto font-heading text-[#989c84]    h-[200vh] max-w-[93vw] " >
           <div className="flex justify-start ">
           <h1 className="md:text-[7vw] relative left-[5vw]   text-[10vw] uppercase font-semibold heading1 opacity-100">Pass along</h1>
           </div>
