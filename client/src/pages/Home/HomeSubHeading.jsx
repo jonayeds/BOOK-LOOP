@@ -3,7 +3,7 @@ import { RiShining2Fill } from "react-icons/ri"
 const HomeSubHeading = () => {
 
   return (
-    <div className="flex subHeading md:flex-row flex-col items-center justify-around space-y-4 text-xs md:text-sm px-4   mt-[10vh]">
+    <div className="flex subHeading text-black md:flex-row flex-col items-center justify-around space-y-4 text-xs md:text-sm px-4   mt-[10vh]">
       <div className="flex group items-start  justify-center">        
       <p className="flex items-center gap-x-2"><PiBookFill className=""/> Swap. Share. Rediscover the Joy of Reading.</p>
       <RiShining2Fill className="group-hover:scale-150 duration-500 text-dark group-hover:rotate-180" />
