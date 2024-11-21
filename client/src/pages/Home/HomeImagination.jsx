@@ -12,7 +12,7 @@ const HomeImagination = () => {
         trigger: ".imaginationContainer",
         start:"top 65%",
         end:"bottom bottom",
-        markers:true,
+        markers:false,
         scrub:1
       }
     })
