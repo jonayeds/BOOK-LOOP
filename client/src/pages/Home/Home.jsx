@@ -27,12 +27,12 @@ const Home = () => {
   })
   return (
     <div className="homeContainer" >
-      <div className="    px-[3.5vw]  font-heading text-dark  " >
+      <div className="  font-heading text-dark  " >
         <HomeHeroSection />
         <HomeSubHeading />
         <HomeImagination />
       </div>
-      <div className=" min-h-screen">
+      <div className="    px-[3.5vw] min-h-screen">
         <HomeHowToGuide />
       </div>
     </div>
