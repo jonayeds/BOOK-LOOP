@@ -3,6 +3,7 @@ import { useGSAP  } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import HomeSubHeading from "./HomeSubHeading"
 import HomeImagination from "./HomeImagination"
+import HomeHowToGuide from "./HomeHowToGuide"
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 const Home = () => {
@@ -53,7 +54,8 @@ const Home = () => {
           </div>
           </div>
         <HomeSubHeading/>   
-        <HomeImagination/> 
+        <HomeImagination/>
+        <HomeHowToGuide/> 
     </div>
     </div>
   )

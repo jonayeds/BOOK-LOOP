@@ -10,9 +10,9 @@ const HomeImagination = () => {
     const imaginationTimeLine = gsap.timeline({
       scrollTrigger: {
         trigger: ".imaginationContainer",
-        start:"top center",
+        start:"top 65%",
         end:"bottom bottom",
-        markers:false,
+        markers:true,
         scrub:1
       }
     })
@@ -25,7 +25,7 @@ const HomeImagination = () => {
     })
   })
   return (
-    <div className="mt-[20vh] imaginationContainer">
+    <div className="mt-[20vh] imaginationContainer md:min-h-[40vh] min-h-[120vh]">
       <h1 className="md:text-[4vw] text-[7vw] font-headings  uppercase text-center mb-16">Unlock Worlds of Imagination</h1>
       <div className="flex pb-24 items-center  gap-y-4 justify-around md:flex-row flex-col  ">
         <div className="p-6 imagination bg-white rounded-3xl">
