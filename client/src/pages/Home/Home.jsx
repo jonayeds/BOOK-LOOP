@@ -12,7 +12,7 @@ const Home = () => {
     const bgChangeTimeLine = gsap.timeline({
       scrollTrigger:{
         trigger:".homeContainer",
-        start:"center top",
+        start:"40% 20%",
         end:"bottom bottom",
         markers:false,
         scrub:1,
@@ -26,13 +26,13 @@ const Home = () => {
     })
   })
   return (
-    <div className="homeContainer" >
-      <div className="  font-heading text-dark  " >
+    <div className="" >
+      <div className="font-heading text-dark homeContainer" >
         <HomeHeroSection />
         <HomeSubHeading />
         <HomeImagination />
       </div>
-      <div className="    px-[3.5vw] min-h-screen">
+      <div className="    px-[3.5vw] min-h-screen bg-[#d9e6ee]">
         <HomeHowToGuide />
       </div>
     </div>
