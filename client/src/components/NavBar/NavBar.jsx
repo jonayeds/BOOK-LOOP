@@ -7,20 +7,20 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Link } from "react-router-dom"
 gsap.registerPlugin(ScrollTrigger, useGSAP)
 const NavBar = () => {
-    useGSAP(()=>{
-        ScrollTrigger.addEventListener("scrollStart",()=>{
-            gsap.to(".navbar", {
-                top:"-150px",
-                duration:0.7
-            })
-        })
-        ScrollTrigger.addEventListener("scrollEnd", ()=>{
-            gsap.to(".navbar", {
-                top:0,                
-                duration:1,
-            })
-        })
+    let lastScroll = 0
+
+    window.addEventListener("scroll",()=>{
+        let currentScroll = window.scrollY
+        if(lastScroll>=currentScroll){
+            document.querySelector(".navbar").classList.remove("-top-[150px]")
+            document.querySelector(".navbar").classList.add("top-[0px]")
+        }else{
+            document.querySelector(".navbar").classList.add("-top-[150px]")
+            document.querySelector(".navbar").classList.remove("top-[0px]")
+        }
+        lastScroll = currentScroll
     })
+
     const handleNavigationHover = (e)=>{
         gsap.to(".navigation", {
             width:e.target.offsetWidth,
@@ -40,7 +40,7 @@ const NavBar = () => {
 }
 
   return ( 
-    <nav className=" fixed navbar   w-full px-[3vw] lg:overflow-y-hidden   top-0  z-50  " >
+    <nav className={` fixed navbar   w-full px-[3vw] lg:overflow-y-hidden   duration-300   z-50  ${scroll === "down"? 'top-[150px]':'top-0'}s `} >
         <div className="flex s px-[2vw]     rounded-3xl bg-white   items-center    justify-between md:py-4 py-2  ">
            
             <Link to={"/"} className="cursor-pointer " >

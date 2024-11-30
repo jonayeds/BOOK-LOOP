@@ -37,7 +37,7 @@ const HomeHowToGuide = () => {
     })
   })
   return (
-    <div className="mb-[20vh] howToContainer">
+    <div className="mb-[20vh] howToContainer bg-gray-300">
       <h2 className="uppercase md:text-[2.5vw] text-[7vw] font-heading text-center mb-[7vh] ">How it works</h2>
       {/* Listing */}
       <div className="flex items-center justify-center gap-[3vw] ">
